@@ -1,0 +1,26 @@
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    htmllint: {
+      options: {
+        'indent-width': false,
+        'id-class-style': false,
+        'attr-name-style': false,
+      },
+      src: [
+        '_site/**/*.html'
+      ]
+    },
+    jshint: {
+      src: ['js/main.js'],
+    },
+  });
+
+  grunt.loadNpmTasks('grunt-htmllint');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+
+  // Default task(s).
+  grunt.registerTask('default', ['jshint', 'htmllint']);
+};

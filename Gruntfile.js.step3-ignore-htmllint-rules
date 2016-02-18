@@ -1,0 +1,22 @@
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    htmllint: {
+      options: { 
+        'indent-width': false,
+        'id-class-style': false,
+        'attr-name-style': false
+      },
+      src: [
+        '_site/**/*.html'
+      ]
+    },
+  });
+
+  grunt.loadNpmTasks('grunt-htmllint');
+
+  // Default task(s).
+  grunt.registerTask('default', ['htmllint']);
+};
